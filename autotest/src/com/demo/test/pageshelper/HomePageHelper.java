@@ -114,8 +114,6 @@ public class HomePageHelper {
 			logger.info("进入frame成功");
 			logger.info("开始检查当前组: " + NAME);
 			//seleniumUtil.isTextCorrect(seleniumUtil.getText(HomePage.AC_TEXT_GROUPADD.linkText(NAME)),NAME);
-			
-			
 			logger.info("检查当前组名为： "+ NAME);
 			seleniumUtil.pause(2000);
 			//拿到组下的tree子孙节点  循环
@@ -187,7 +185,6 @@ public class HomePageHelper {
 	}
 
 	
-
 
 
 	/**

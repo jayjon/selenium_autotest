@@ -23,7 +23,7 @@ public class AcHomeTaskPageHelper {
 		
 	}
 	/**
-	 * 发现模块下的任务名称删除
+	 * 发现模块下的任务组名称删除
 	 * */
 		public static void deleteFXTaskGroup(SeleniumUtil seleniumUtil, int timeOut, String ISDELETE) {
 			// TODO Auto-generated method stub
@@ -54,7 +54,7 @@ public class AcHomeTaskPageHelper {
 			
 			
 		}
-		/**发现模块下的新增任务组 添加任务 并且判断当前添加的文本对象 执行点击操作*/      
+		/**发现模块下的新增任务组*/      
 		@SuppressWarnings("static-access")
 		public static void addFXTaskGroup(SeleniumUtil seleniumUtil, int timeOut,String NAME) {
 			//验证是否在当前组下
@@ -90,6 +90,7 @@ public class AcHomeTaskPageHelper {
 				System.out.println("树结构已展开....");
 			}
 		}
+	
 		/**添加任务*/
 		public static void addtaskName(SeleniumUtil seleniumUtil, int timeOut,String NAME){
 		logger.info("开始点击添加按钮...");
@@ -175,22 +176,149 @@ public class AcHomeTaskPageHelper {
 		  
 		    	 
 		     }
-		/**删除指定任务组下的任务*/
-		public static void deleteFXGroupTask(SeleniumUtil seleniumUtil, int timeOut) {
+		/**循环table下的行和列 分别输出*/
+		public static void tabletr(SeleniumUtil seleniumUtil,String RIGHTTASKNAME){
+			//通过tableid得到table的文本元素
+			WebElement table = seleniumUtil.findElementBy(AcHomeTaskPage.AC_TEXT_TABLEID);
+            //通过table的tr得到所有的行
+			List<WebElement> rows = table.findElements(By.tagName("tr"));
+			//循环所有行
+		    for(WebElement row:rows){
+		    	//打印行id
+		    	System.out.println("输出所有行tr的id的值"+row.getAttribute("id"));
+		    	
+		   //得到所有的行的列存放在list
+		    	List<WebElement> cells = row.findElements(By.tagName("td"));
+		    //循环所有列
+		    for(WebElement cell:cells){
+		    	
+			    System.out.println("**********"+row.getAttribute("id")+"cell.getText()"+cell.getText()+"cell.getAttribute的id//"+cell.getAttribute("id")+"cell.getTagName()"+cell.getTagName());
+			//判断 
+			  String trid = row.getAttribute("id");
+			    if( trid !=null && cell.getText().equals(RIGHTTASKNAME)){
+			    	//public static final By AC_TEXT_=By.id("");
+			    	seleniumUtil.click(By.id(trid));
+			    	logger.info("点击成功:继续执行下一步操作");
+			     
+			    }
+			
+			    
+		   }
+		   
+		   }
+
+			
+			
+
+		}
+		/**删除指定任务组下的任务
+		 * @param element */
+		public static void deleteFXGroupTask(SeleniumUtil seleniumUtil, int timeOut,String RIGHTTASKNAME) {
 		    logger.info("暂停4秒钟后执行");
 			seleniumUtil.pause(4000);
-			logger.info("点击当前扫描任务");
+			logger.info("点击当前扫描任务....开始进入第一个iframe");
 			//先进大iframe
 			FramePageHelper.jumpInToFrame(seleniumUtil, FramePage.FP_FRAME_ACBODY);// 先进入到bodyframe中
-			//先进入右侧iframe  为rightFrame
+	 	    logger.info("第一个iframe成功");
+			//进入右侧iframe  为rightFrame
 		     FramePageHelper.jumpInToFrame(seleniumUtil, FramePage.AC_FNAME_FXRIGHTFRAME);
-			seleniumUtil.click(AcHomeTaskPage.AC_TEXT_FXTASKCHECKBOX);
+		     logger.info("进入iframe成功");
+		     seleniumUtil.pause(3000);
+		     tabletr(seleniumUtil, RIGHTTASKNAME);
+		     logger.info("******************");
 			seleniumUtil.pause(3000);
 			seleniumUtil.click(AcHomeTaskPage.AC_TEXT_DELFXTASK);
 			seleniumUtil.pause(3000);
 			seleniumUtil.click(AcHomeTaskPage.AC_TEXT_DELQUEREN);
+			logger.info("删除成功。。。");
 		}
+		/**检查和点击发现模块下的组和任务名称*/
+		public static void CheckClinkFxTask(SeleniumUtil seleniumUtil, int timeOut, String FAXIANPEIZHI, String NAME) {
+			// TODO Auto-generated method stub
+			logger.info("开始点击发现模块: "+ FAXIANPEIZHI);
+			seleniumUtil.click(HomePage.HP_TEXT_FIND);
+			
+			try {
+				Thread.sleep(2000);
+				seleniumUtil.isTextCorrect(seleniumUtil.getText(HomePage.AC_TEXT_FAXIANPEIZHI), FAXIANPEIZHI);
+				logger.info("点击发现模块完毕: "+ FAXIANPEIZHI);
+				Thread.sleep(3000);
+				FramePageHelper.jumpInToFrame(seleniumUtil, FramePage.FP_FRAME_ACBODY);// 先进入到bodyframe中
+				logger.info("进入frame成功");
+				logger.info("开始检查当前组: " + NAME);
+				//seleniumUtil.isTextCorrect(seleniumUtil.getText(HomePage.AC_TEXT_GROUPADD.linkText(NAME)),NAME);
+				logger.info("检查当前组名为： "+ NAME);
+				seleniumUtil.pause(2000);
+				//拿到组下的tree子孙节点  循环
+				 List<WebElement> s = seleniumUtil.findElementsBy(HomePage.AC_TEXT_GROUPADD);
+		    	 for(int i=0;i<s.size();i++){
+		    		 WebElement element =s.get(i);
+		    		 isDiscover(seleniumUtil,element);
+		    		 System.out.println("****"+element.getText());
+		    		
+		    		 //通过文本判断当前任务名称 如果有该名称就点击
+		    		 if(NAME.equals(element.getText())){
+		    			 //删除当前文本
+		    			 seleniumUtil.click(HomePage.AC_TEXT_GROUPADD.linkText(NAME));
+		    			 logger.info("开始检查当前文本："+ NAME);
+		    			 seleniumUtil.pause(2000);
+		    			 logger.info("点击成功...");
+		    			  break;
+		    			}else{
+		    			 logger.info("点击失败...");
+		    	        
+		        	 }
+		    		
+		    		}	
+				
+				
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+	    	
+}      
+		
+/**直接删除任务*/
+public static void deleteFXGroupTask1(SeleniumUtil seleniumUtil, int timeOut, String RIGHTTASKNAME) {
+			   logger.info("暂停4秒钟后执行");
+				seleniumUtil.pause(4000);
+				//进入右侧iframe  为rightFrame
+				logger.info("准备进入右侧iframe");
+			     FramePageHelper.jumpInToFrame(seleniumUtil, FramePage.AC_FNAME_FXRIGHTFRAME);
+			     logger.info("进入iframe成功");
+			     seleniumUtil.pause(3000);
+			     tabletr(seleniumUtil, RIGHTTASKNAME);
+			     logger.info("******************");
+				seleniumUtil.pause(3000);
+				seleniumUtil.click(AcHomeTaskPage.AC_TEXT_DELFXTASK);
+				seleniumUtil.pause(3000);
+				seleniumUtil.click(AcHomeTaskPage.AC_TEXT_DELQUEREN);
+				logger.info("删除成功。。。");
+			
 		}
+/** 编辑组下的任务名称*/
+public static void EDITFXTaskName(SeleniumUtil seleniumUtil, int timeOut, String RIGHTTASKNAME,String UPDATERIGHTTASKNAME) {
+	  logger.info("暂停4秒钟后执行");
+		seleniumUtil.pause(4000);
+		//进入右侧iframe  为rightFrame
+		logger.info("准备进入右侧iframe");
+	     FramePageHelper.jumpInToFrame(seleniumUtil, FramePage.AC_FNAME_FXRIGHTFRAME);
+	     logger.info("进入iframe成功");
+	     seleniumUtil.pause(3000);
+	    tabletr(seleniumUtil, RIGHTTASKNAME);
+	    logger.info("******************");
+		seleniumUtil.pause(3000);
+		//点击编辑按钮
+		seleniumUtil.click(AcHomeTaskPage.AC_TEXT_EDITFXTASKNAME);
+		seleniumUtil.pause(3000);
+		logger.info("点击编辑成功。。。");
+	
+	
+}
+		
+}
 		
 
 

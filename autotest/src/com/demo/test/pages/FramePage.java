@@ -16,6 +16,7 @@ public class FramePage {
 	public static final By FP_FRAME_BODY = By.name("body");
 	/** body frame 名字 */
 	public static final By FP_FRAME_ACBODY = By.xpath(".//*[@src='/ac/config/runConfig/acMain?portal_id=portal-acScanConfig&wicket_id=module-acScanConfig_wickets-scanConfig&root_id=-1&portalStyle=tabs']");
+	                                                         
 //	public static final By FP_FRAME_CLASSNAME = By.className("west");
 	/** navbar frame名字 */
 	public static final By FP_FRAME_NAVBAR = By.name("navbar");
