@@ -8,10 +8,13 @@ import com.demo.test.base.BaseParpare;
 import com.demo.test.pageshelper.AcHomeTaskPageHelper;
 import com.demo.test.pageshelper.HomePageHelper;
 import com.demo.test.pageshelper.LoginPageHelper;
-
-public class ActaskPage_003_AddHomeAcTaskName extends BaseParpare{
-    @Test(dataProvider = "testData")
-	public void AddHomeAcTaskName(Map<String,String> data){
+/** 
+ * 测试用例：
+ * 
+ * */
+public class ActaskPage_006_AddHomeAcTaskName2 extends BaseParpare{
+    //@Test(dataProvider = "testData")
+	public void AddHomeAcTaskName2(Map<String,String> data){
 		// 等待登录页面加载
 		LoginPageHelper.waitLoginPageLoad(seleniumUtil, timeOut);
 		// 输入登录信息

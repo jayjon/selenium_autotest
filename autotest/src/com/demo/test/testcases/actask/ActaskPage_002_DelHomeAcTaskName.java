@@ -21,6 +21,6 @@ public class ActaskPage_002_DelHomeAcTaskName extends BaseParpare{
 		//点击任务组 找到任务
 		AcHomeTaskPageHelper.CheckClinkFxTask(seleniumUtil, timeOut,data.get("FAXIANPEIZHI"),data.get("NAME"));
 	    //删除当前组的任务
-	    AcHomeTaskPageHelper.deleteFXGroupTask1(seleniumUtil, timeOut,data.get("RIGHTTASKNAME"));
+	    AcHomeTaskPageHelper.deleteFXGroupTask(seleniumUtil, timeOut,data.get("RIGHTTASKNAME"));
 	}
 }

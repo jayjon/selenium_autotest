@@ -237,11 +237,12 @@ public class AcHomeTaskPageHelper {
 			// TODO Auto-generated method stub
 			logger.info("开始点击发现模块: "+ FAXIANPEIZHI);
 			seleniumUtil.click(HomePage.HP_TEXT_FIND);
-			
+			logger.info("点击发现模块完毕: "+ FAXIANPEIZHI);
 			try {
 				Thread.sleep(2000);
+			
 				seleniumUtil.isTextCorrect(seleniumUtil.getText(HomePage.AC_TEXT_FAXIANPEIZHI), FAXIANPEIZHI);
-				logger.info("点击发现模块完毕: "+ FAXIANPEIZHI);
+			
 				Thread.sleep(3000);
 				FramePageHelper.jumpInToFrame(seleniumUtil, FramePage.FP_FRAME_ACBODY);// 先进入到bodyframe中
 				logger.info("进入frame成功");
@@ -315,6 +316,104 @@ public static void EDITFXTaskName(SeleniumUtil seleniumUtil, int timeOut, String
 		seleniumUtil.pause(3000);
 		logger.info("点击编辑成功。。。");
 	
+	
+}
+public static void addFXGroupTaskPortScan(SeleniumUtil seleniumUtil, int timeOut,String ADDTEXT,String RIGHTTASKNAME,String SCANADDRESS,String CYCLETIME,String ERROR,String key,String PORT) {
+	seleniumUtil.pause(2000);
+	
+	 logger.info("开始进入右侧iframe框架...");
+	//先进入右侧iframe  为rightFrame
+    FramePageHelper.jumpInToFrame(seleniumUtil, FramePage.AC_FNAME_FXRIGHTFRAME);
+    logger.info("进入框架完成。。。");
+    seleniumUtil.pause(2000);
+    logger.info("开始点击添加按钮...");
+    seleniumUtil.click(HomePage.AC_TEXT_ADDRIGHTBUTTON);
+    seleniumUtil.pause(3000);
+    //判断是否跳转到添加页面
+    logger.info("开始检查跳转界面是否是："+ ADDTEXT);
+    seleniumUtil.isTextCorrect(seleniumUtil.getText(HomePage.AC_TEXT_ADDTEXT), ADDTEXT);
+    logger.info("跳转界面是否是："+ ADDTEXT + "已在添加任务界面");
+    seleniumUtil.pause(3000);
+    logger.info("开始进入右侧iframe框架 的子框架...");
+    FramePageHelper.jumpInToFrame(seleniumUtil, FramePage.AC_FNAME_ADDFXRIGHTTASKIFRAME);
+    logger.info("进入右侧iframe框架 的子框架完成");
+   
+     seleniumUtil.clear(HomePage.AC_TEXT_RIGHTTASKNAME);
+     seleniumUtil.type(HomePage.AC_TEXT_RIGHTTASKNAME,RIGHTTASKNAME);
+    
+    //检查单选按钮是否被勾选    
+  
+      isselecter(seleniumUtil,timeOut);
+	   logger.info("######"+isselecter(seleniumUtil,timeOut).booleanValue());
+	   logger.info("按钮已选");
+	   if( isselecter(seleniumUtil,timeOut).booleanValue()==true){
+		   logger.info("按钮已选是");
+	   }else if(isselecter(seleniumUtil,timeOut).booleanValue()==false){
+		   seleniumUtil.pause(3000);
+		   seleniumUtil.click(HomePage.AC_TEXT_ISRADIOUPZERO);
+	   }
+	 
+	   
+     //扫描地址填入192.168.19.1
+     seleniumUtil.clear(HomePage.AC_TEXT_SCANADDRESS);
+     seleniumUtil.type(HomePage.AC_TEXT_SCANADDRESS,SCANADDRESS);
+     seleniumUtil.pause(3000);
+     //任务类型
+      seleniumUtil.click(HomePage.AC_TEXT_TASKTYPE);
+     //扫描端口输入框
+      seleniumUtil.clear(HomePage.AC_TEXT_INTPUTPORTSCAN);
+      seleniumUtil.type(HomePage.AC_TEXT_INTPUTPORTSCAN,PORT);
+      seleniumUtil.pause(3000);
+     //判断是否周期
+     seleniumUtil.click(HomePage.AC_TEXT_CYCLEYES);
+     seleniumUtil.clear(HomePage.AC_TEXT_CYCLEINPUT);
+     seleniumUtil.pause(3000);
+     seleniumUtil.type(HomePage.AC_TEXT_CYCLEINPUT,CYCLETIME);
+     seleniumUtil.pause(3000);
+     //执行时间输入框
+     seleniumUtil.click(HomePage.AC_TEXT_EXCUTETIME);
+     seleniumUtil.pause(3000);
+     seleniumUtil.click(HomePage.AC_TEXT_NOWTIME);
+     seleniumUtil.pause(3000);
+     seleniumUtil.click(HomePage.AC_TEXT_WANCHENG);
+     seleniumUtil.pause(3000);
+     seleniumUtil.click(HomePage.AC_TEXT_BAOCUN);
+   /*  *//**如果界面任务名称弹出提示文字*//*
+     logger.info("开始检查该任务是否存在" + "......."+ERROR);
+     seleniumUtil.isTextCorrect(seleniumUtil.getText(AcHomeTaskPage.AC_TEXT_ERROR), ERROR);
+     logger.info("检查完毕" + ERROR);*/
+	
+}
+/**删除发现任务下的所有任务 */
+public static void deleteFXGroupTaskAll(SeleniumUtil seleniumUtil, int timeOut, String string) {
+	/*//点击按钮checbox按钮
+	FramePageHelper.jumpInToFrame(seleniumUtil, FramePage.FP_FRAME_ACBODY);// 先进入到bodyframe中
+	    logger.info("第一个iframe成功");*/
+	//进入右侧iframe  为rightFrame
+     FramePageHelper.jumpInToFrame(seleniumUtil, FramePage.AC_FNAME_FXRIGHTFRAME);
+     logger.info("进入iframe成功");
+	 seleniumUtil.pause(3000);
+     seleniumUtil.click(HomePage.AC_TEXT_FIRSTCHECKBOX);
+     seleniumUtil.isSelected(seleniumUtil.findElementBy(HomePage.AC_TEXT_FIRSTCHECKBOX));
+     logger.info("复选框已选中");
+     seleniumUtil.pause(3000);
+     logger.info("准备开始点击删除按钮.....");
+	seleniumUtil.click(AcHomeTaskPage.AC_TEXT_DELFXTASK);
+	seleniumUtil.pause(3000);
+	seleniumUtil.click(AcHomeTaskPage.AC_TEXT_DELQUEREN);
+	logger.info("删除成功。。。");
+     
+}
+/**只定位点击当前左侧菜单任务组*/
+public static void CheckClinkFxTask1(SeleniumUtil seleniumUtil, int timeOut, String TASKGROUP) {
+	seleniumUtil.pause(3000);
+	logger.info("点击任务模块...");
+	seleniumUtil.click(HomePage.HP_TEXT_FIND);
+	seleniumUtil.pause(2000);
+	FramePageHelper.jumpInToFrame(seleniumUtil, FramePage.FP_FRAME_ACBODY);// 先进入到bodyframe中
+	logger.info("进入左侧框架成功");
+	seleniumUtil.isTextCorrect(seleniumUtil.getText(HomePage.AC_TEXT_TASKGROUP), TASKGROUP);
+	seleniumUtil.click(HomePage.AC_TEXT_TASKGROUP);
 	
 }
 		

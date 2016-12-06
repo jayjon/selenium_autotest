@@ -48,6 +48,8 @@ public class HomePage {
 	public static final By AC_TEXT_EDITBUTTON =By.id("btn-update");
 	//新增组名称
 	public static final By AC_TEXT_ADDFXTGROUPNAME =By.id("name");
+	//任务组
+	public static final By AC_TEXT_TASKGROUP =By.id("tree_1_span");
 	
 	//新增组描述信息
 	public static final By AC_TEXT_ADDFXTGROUPDES =By.xpath(".//*[@id='group-form']/ul/li[2]/div/textarea");
@@ -57,6 +59,8 @@ public class HomePage {
 	public static final By AC_TEXT_ADDRIGHTBUTTON= By.xpath(".//*[@id='btn-editForm-add']/span/span");
 	//点击右侧添加按钮跳转界面
 	public static final By AC_TEXT_ADDTEXT= By.linkText("添加");
+	//右侧第一个checkbox按钮
+	public static final By AC_TEXT_FIRSTCHECKBOX =By.id("cb_id_table");
 	//点击右侧任务名称输入框
 	public static final By AC_TEXT_RIGHTTASKNAME= By.name("taskName");
 	//
@@ -67,11 +71,16 @@ public class HomePage {
 	public static final By AC_TEXT_ISRADIOUPONE= By.cssSelector("input[value='1']");
 	//扫描地址
 	public static final By AC_TEXT_SCANADDRESS= By.xpath(".//*[@id='address']");
+	//任务类型
+	public static final By AC_TEXT_TASKTYPE=By.id("taskType_port");
+	//扫描端口输入框
+	public static final By AC_TEXT_INTPUTPORTSCAN=By.id("specifiedPorts");
 	//周期单选按钮yes
 	public static final By AC_TEXT_CYCLEYES= By.id("isCycle_yes");
 	
 	//周期单选按钮no
 	public static final By AC_TEXT_CYCLENO= By.id("isCycle_no");
+	
 	//周期输入框
 	public static final By AC_TEXT_CYCLEINPUT= By.name("scanCycleTemp");
 	//现在时刻
