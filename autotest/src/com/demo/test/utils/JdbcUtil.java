@@ -49,6 +49,7 @@ public class JdbcUtil {
 			// jdbc_password);// 创建数据连接
 			con = DriverManager.getConnection(jdbc_url + jdbc_db + "?user=" + jdbc_name + "&password=" + jdbc_password
 					+ "&useUnicode=true&characterEncoding=utf-8");// 创建数据连接
+			System.out.print("****数据库创建成功");
 		} catch (Exception e) {
 			System.out.println("数据库连接失败" + e.getMessage());
 		}
@@ -101,6 +102,7 @@ public class JdbcUtil {
 				// 根据字段名获取相应的值
 				queryContentTemp = rs.getString(queryContent);
 			}
+			
 			rs.close();
 			statement.close();
 			conn.close(); // 关闭数据库连接
@@ -127,4 +129,5 @@ public class JdbcUtil {
 			System.out.println("删除数据失败");
 		}
 	}
+	
 }

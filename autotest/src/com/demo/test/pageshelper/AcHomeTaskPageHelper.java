@@ -11,6 +11,7 @@ import com.demo.test.pages.AcHomeTaskPage;
 import com.demo.test.pages.FramePage;
 import com.demo.test.pages.HomePage;
 import com.demo.test.utils.SeleniumUtil;
+import com.demo.test.utils.ThreadUtil;
  
 public class AcHomeTaskPageHelper {
 	// 提供本类中日志输出对象
@@ -90,7 +91,13 @@ public class AcHomeTaskPageHelper {
 				System.out.println("树结构已展开....");
 			}
 		}
-	
+		/**循环添加任务组*/
+      
+       public static void addtaskNames(SeleniumUtil seleniumUtil, int timeOut,String NAME){
+    	 
+    	   addtaskName(seleniumUtil,timeOut,NAME);
+        }
+        
 		/**添加任务*/
 		public static void addtaskName(SeleniumUtil seleniumUtil, int timeOut,String NAME){
 		logger.info("开始点击添加按钮...");
@@ -103,9 +110,9 @@ public class AcHomeTaskPageHelper {
 		seleniumUtil.click(HomePage.AC_TEXT_ADDBUTTON);
 		seleniumUtil.pause(2000);
 	  //点击当前文本
-	  seleniumUtil.click(HomePage.AC_TEXT_GROUPADD.linkText(NAME));
-	  logger.info("点击当前添加任务组任务："+NAME+"成功");
-	  seleniumUtil.pause(2000);
+	    seleniumUtil.click(HomePage.AC_TEXT_GROUPADD.linkText(NAME));
+	    logger.info("点击当前添加任务组任务："+NAME+"成功");
+	    seleniumUtil.pause(2000);
 
 	}
 		/**
