@@ -10,7 +10,7 @@ import com.demo.test.pageshelper.HomePageHelper;
 import com.demo.test.pageshelper.LoginPageHelper;
 
 public class ActaskPage_009_AddHomeAcTaskName4 extends BaseParpare{
-    @Test(dataProvider = "testData")
+   // @Test(dataProvider = "testData")
 	public void AddHomeAcTaskName(Map<String,String> data){
 		// 等待登录页面加载
 		LoginPageHelper.waitLoginPageLoad(seleniumUtil, timeOut);
@@ -21,7 +21,9 @@ public class ActaskPage_009_AddHomeAcTaskName4 extends BaseParpare{
 		//检查是否到发现模块页面并且验证后添加任务组 
 	    HomePageHelper.clinkHomeFXElement(seleniumUtil, timeOut, data.get("FAXIANPEIZHI"),data.get("NAME"),data.get("ISDELETE"));
 	    //添加任务组
-	    AcHomeTaskPageHelper.addtaskNames(seleniumUtil, timeOut,data.get("NAME"));
+	    AcHomeTaskPageHelper.addtaskName(seleniumUtil, timeOut,data.get("NAME"));
+	  //添加组下的任务
+	     AcHomeTaskPageHelper.addFXGroupTask(seleniumUtil, timeOut, data.get("ADDTEXT"), data.get("RIGHTTASKNAME"),data.get("SCANADDRESS"), data.get("CYCLETIME"),data.get("ERROR"),data.get("key"));
 	  
 	}
 }

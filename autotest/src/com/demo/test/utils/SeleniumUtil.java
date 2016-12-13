@@ -178,6 +178,16 @@ public class SeleniumUtil {
 		}
 		logger.info("输入：[" + key + "] 到 [" + byElement + "]");
 	}
+	public void type1(By acTextAddfxtgroupname, StringBuffer sb) {
+		try {
+			findElementBy(acTextAddfxtgroupname).sendKeys(sb);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("输入 [" + sb + "] 到 元素[" + acTextAddfxtgroupname + "]失败");
+			Assert.fail("输入 [" + sb + "] 到 元素[" + acTextAddfxtgroupname + "]失败");
+		}
+		logger.info("输入：[" + sb + "] 到 [" + acTextAddfxtgroupname + "]");
+	}
 
 	/**
 	 * 模拟键盘操作的,比如Ctrl+A,Ctrl+C等 参数详解：<br>
@@ -628,6 +638,8 @@ public class SeleniumUtil {
 	public static double getScreenWidth() {
 		return java.awt.Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 	}
+
+	
 
 
 }

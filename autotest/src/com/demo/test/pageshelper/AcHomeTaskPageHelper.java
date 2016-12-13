@@ -75,8 +75,10 @@ public class AcHomeTaskPageHelper {
 	    			 seleniumUtil.click(HomePage.AC_TEXT_GROUPADD.linkText(NAME));
 	    			 logger.info("点击当前添加任务组任务："+NAME+"成功");
 	    			 seleniumUtil.pause(2000);
-	    			 continue;
+	    			 //continue;
+	    			 break;
 	        	 }
+	    		
 	    		}
 	    	
 			
@@ -91,13 +93,52 @@ public class AcHomeTaskPageHelper {
 				System.out.println("树结构已展开....");
 			}
 		}
-		/**循环添加任务组*/
+		/**同一组下添加多条任务*/
       
        public static void addtaskNames(SeleniumUtil seleniumUtil, int timeOut,String NAME){
     	 
-    	   addtaskName(seleniumUtil,timeOut,NAME);
-        }
+    	   StringBuffer sb =new StringBuffer();
+    	         for(int i=5;i>0;i--){
+    			   sb.append(NAME+i);
+    			    System.out.println("SB是："+sb);
+    			    if(sb.toString().equals("H5")){
+        		    	addtaskName1(seleniumUtil, timeOut,sb);
+        		    	}
+        		    if(sb.toString().equals("H5H4")){
+        		    	addtaskName1(seleniumUtil, timeOut,sb);
+        		     }
+        		    if(sb.toString().equals("H5H4H3")){
+        		    	addtaskName1(seleniumUtil, timeOut,sb);
+        		    }
+    			}
+    	        
+    		  
+    		    //System.out.println("sb.substring(0,2)："+sb.substring(0,2));
+    		   
+    		  
+    	   
+    	   }
+    	
         
+       /**添加任务sb*/
+		private static void addtaskName1(SeleniumUtil seleniumUtil, int timeOut, StringBuffer sb) {
+			logger.info("开始点击添加按钮...");
+			seleniumUtil.click(HomePage.AC_TEXT_ADDFXTASKGROUP);
+			logger.info("开始输入名称：" + sb );
+			seleniumUtil.clear(HomePage.AC_TEXT_ADDFXTGROUPNAME);
+			seleniumUtil.type1(HomePage.AC_TEXT_ADDFXTGROUPNAME,sb);
+			seleniumUtil.clear(HomePage.AC_TEXT_ADDFXTGROUPDES);
+			logger.info("开始输入名称：" + sb + "完成");
+			seleniumUtil.click(HomePage.AC_TEXT_ADDBUTTON);
+			seleniumUtil.pause(2000);
+		    //点击当前文本
+		    seleniumUtil.click(HomePage.AC_TEXT_GROUPADD.linkText(sb.toString()));
+		    logger.info("点击当前添加任务组任务："+sb+"成功");
+		    //seleniumUtil.click(HomePage.AC_TEXT_ADDFXTASKGROUP);
+		    logger.info("点击任务组："+ HomePage.AC_TEXT_TASKGROUP);
+		    seleniumUtil.click(HomePage.AC_TEXT_TASKGROUP);
+		    seleniumUtil.pause(2000);			
+		}
 		/**添加任务*/
 		public static void addtaskName(SeleniumUtil seleniumUtil, int timeOut,String NAME){
 		logger.info("开始点击添加按钮...");
@@ -109,9 +150,11 @@ public class AcHomeTaskPageHelper {
 		logger.info("开始输入名称：" + NAME + "完成");
 		seleniumUtil.click(HomePage.AC_TEXT_ADDBUTTON);
 		seleniumUtil.pause(2000);
-	  //点击当前文本
+	   //点击当前文本
 	    seleniumUtil.click(HomePage.AC_TEXT_GROUPADD.linkText(NAME));
 	    logger.info("点击当前添加任务组任务："+NAME+"成功");
+	 
+	    
 	    seleniumUtil.pause(2000);
 
 	}
@@ -325,6 +368,7 @@ public static void EDITFXTaskName(SeleniumUtil seleniumUtil, int timeOut, String
 	
 	
 }
+/**添加端口扫描任务*/
 public static void addFXGroupTaskPortScan(SeleniumUtil seleniumUtil, int timeOut,String ADDTEXT,String RIGHTTASKNAME,String SCANADDRESS,String CYCLETIME,String ERROR,String key,String PORT) {
 	seleniumUtil.pause(2000);
 	
@@ -423,6 +467,8 @@ public static void CheckClinkFxTask1(SeleniumUtil seleniumUtil, int timeOut, Str
 	seleniumUtil.click(HomePage.AC_TEXT_TASKGROUP);
 	
 }
+
+
 		
 }
 		

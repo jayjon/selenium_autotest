@@ -3,8 +3,9 @@ package com.demo.test.tests;
 public class TestSufa {
 
 	public static void main(String[] args) {
+		String name="test";
 		// TODO Auto-generated method stub
-		xin();
+		xunhuan(name);
 	}
 	public static void xin(){
 		for(int i=1;i<=10;i++){
@@ -21,6 +22,19 @@ public class TestSufa {
 				System.out.print("*");
 			}
 		}
+	}
+	public static void xunhuan(String name){
+		 StringBuilder sb =new StringBuilder();
+		for(int i=5;i>0;i--){
+			sb.append(name+i);
+			//System.out.println(sb);
+			
+			}
+		System.out.println(sb);
+		
+			
+		
+		
 	}
 
 }

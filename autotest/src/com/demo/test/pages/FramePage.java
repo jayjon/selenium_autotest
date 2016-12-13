@@ -14,9 +14,10 @@ public class FramePage {
 	public static final By FP_FRAME_HEADER = By.name("header");
 	/** body frame 名字 */
 	public static final By FP_FRAME_BODY = By.name("body");
-	/** body frame 名字 */
+	/**任务 body frame 名字 */
 	public static final By FP_FRAME_ACBODY = By.xpath(".//*[@src='/ac/config/runConfig/acMain?portal_id=portal-acScanConfig&wicket_id=module-acScanConfig_wickets-scanConfig&root_id=-1&portalStyle=tabs']");
-	                                                         
+	/**ac系统body frame*/
+	public static final By FP_FRAME_ACSYSBODY = By.xpath(".//*[@src='/ac/config/sysmanage/sysinfo/viewSysManage?portal_id=portal-acConfig&wicket_id=module-acConfig_wickets-systemConfig&root_id=-1&portalStyle=tabs']");                                                        
 //	public static final By FP_FRAME_CLASSNAME = By.className("west");
 	/** navbar frame名字 */
 	public static final By FP_FRAME_NAVBAR = By.name("navbar");
