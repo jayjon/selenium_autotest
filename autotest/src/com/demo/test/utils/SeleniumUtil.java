@@ -471,9 +471,11 @@ public class SeleniumUtil {
 	public void addCookies(int sleepTime) {
 		pause(sleepTime);
 		Set<Cookie> cookies = driver.manage().getCookies();
+		System.out.println("cookies总数："+cookies.size());
 		for (Cookie c : cookies) {
 			System.out.println(c.getName() + "->" + c.getValue());
-			if (c.getName().equals("logisticSessionid")) {
+			//logisticSessionid
+			if (c.getName().equals("JSESSIONID")) {
 				Cookie cook = new Cookie(c.getName(), c.getValue());
 				driver.manage().addCookie(cook);
 				System.out.println(c.getName() + "->" + c.getValue());
@@ -485,6 +487,23 @@ public class SeleniumUtil {
 		}
 
 	}
+	public void addCookies1(int sleepTime) {
+		pause(sleepTime);
+		Set<Cookie> cookies = driver.manage().getCookies();
+		System.out.println("cookies总数："+cookies.size());
+		for (Cookie c : cookies) {
+			System.out.println(c.getName() + "->" + c.getValue());
+			//logisticSessionid
+		    Cookie cook = new Cookie(c.getName(), c.getValue());
+			driver.manage().addCookie(cook);
+			System.out.println(c.getName() + "->" + c.getValue());
+			System.out.println("添加成功");
+			
+		
+
+		}
+	}
+
 
 	/** 获得CSS value */
 	public String getCSSValue(WebElement e, String key) {
@@ -639,6 +658,7 @@ public class SeleniumUtil {
 		return java.awt.Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 	}
 
+	
 	
 
 

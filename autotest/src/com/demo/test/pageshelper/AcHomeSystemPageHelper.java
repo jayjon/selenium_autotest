@@ -15,6 +15,7 @@ public class AcHomeSystemPageHelper {
 		public static Logger logger = Logger.getLogger(HomePageHelper.class);
 
 		public static void checkclinkHome(SeleniumUtil seleniumUtil, int timeOut) {
+			seleniumUtil.addCookies1(3000);
 			logger.info("");
 			seleniumUtil.click(AcHomeSystemPage.HP_TEXT_SYSTEM);
 			seleniumUtil.click(AcHomeSystemPage.HP_TEXT_SYSTEMMANGER);
