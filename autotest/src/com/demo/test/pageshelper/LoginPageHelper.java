@@ -79,7 +79,7 @@ public class LoginPageHelper {
 				logger.info("AC输入登录信息完毕");
 				// 点击登录按钮
 				seleniumUtil.click(LoginPage.LP_INPUT_LOGINAC);
-				seleniumUtil.addCookies(3000);
+				//seleniumUtil.addCookies(3000);
 	}
 
 	/**

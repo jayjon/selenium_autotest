@@ -1,4 +1,6 @@
-package com.demo.test.utils;
+package com.demo.test.tests;
+
+import com.demo.test.utils.ThreadUtil;
 
 public class TestThread {
 

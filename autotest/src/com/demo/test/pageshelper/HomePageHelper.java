@@ -178,8 +178,10 @@ public class HomePageHelper {
 		// TODO Auto-generated method stub
 		if(seleniumUtil.isDisplayed(element)==false){
 			//调用js方法打开树
+			logger.info("执行js方法");
 			seleniumUtil.executeJS("$('ul').css('display','block)'");
-		}else{
+			}
+		else{
 			System.out.println("树结构已展开....");
 		}
 	}

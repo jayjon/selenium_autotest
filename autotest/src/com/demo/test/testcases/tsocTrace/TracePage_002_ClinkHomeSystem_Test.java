@@ -5,15 +5,16 @@ import org.testng.annotations.Test;
 import com.demo.test.base.BaseParpare;
 import com.demo.test.pageshelper.HomePageHelper;
 import com.demo.test.pageshelper.LoginPageHelper;
+import com.demo.test.pageshelper.TraceHomePageHelper;
 
 /**
  * @author Young
  * @description 登录之后验证用户名是不是正确的
  */
 
-public class LoginPage_001_LoginSuccessFunctionTRACE_Test extends BaseParpare{
-   //@Test(dataProvider = "testData")
-	public void LoginSuccessFunctionTRACE(Map<String, String> data) {
+public class TracePage_002_ClinkHomeSystem_Test extends BaseParpare{
+   @Test(dataProvider = "testData")
+	public void ClinkHomeSystem(Map<String, String> data) {
 		// 等待登录页面加载
 		LoginPageHelper.waitLoginPageLoad(seleniumUtil, timeOut);
 		// 输入登录信息
@@ -22,7 +23,8 @@ public class LoginPage_001_LoginSuccessFunctionTRACE_Test extends BaseParpare{
 		HomePageHelper.waitHomePageLoad(seleniumUtil, timeOut);
 		// 检查用户名是不是期望的"sysadmin"
 		HomePageHelper.checkUserName(seleniumUtil, timeOut, data.get("USERNAME"));
-	
+		//TraceHomePageHelper.clinkSystem(seleniumUtil, timeOut);
+		TraceHomePageHelper.tagname(seleniumUtil, timeOut);
 
 	}
 	

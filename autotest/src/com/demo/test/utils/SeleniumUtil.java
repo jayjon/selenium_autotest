@@ -88,9 +88,10 @@ public class SeleniumUtil {
 	/**
 	 * 包装查找元素的方法 element
 	 */
-	public WebElement findElementBy(By by) {
-		return driver.findElement(by);
+	public WebElement findElementBy(By byElement) {
+		return driver.findElement(byElement);
 	}
+	
 
 	/**
 	 * 包装查找元素的方法 elements
@@ -115,6 +116,7 @@ public class SeleniumUtil {
 		}
 		logger.info("点击元素 [" + byElement + "]");
 	}
+	
 
 	/** 不能点击时候重试点击操作 */
 	public void clickTheClickable(By byElement, long startTime, int timeOut) throws Exception {

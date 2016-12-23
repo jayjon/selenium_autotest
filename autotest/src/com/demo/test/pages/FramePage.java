@@ -31,4 +31,7 @@ public class FramePage {
 	public static final By AC_FNAME_FXRIGHTFRAME = By.id("rightFrame");
 	/**AC发现模块右侧发现任务下添加按钮后界面的 iframe*/
 	public static final By AC_FNAME_ADDFXRIGHTTASKIFRAME = By.className("ui-tabs-frame");
+   /**Trace系统模块tree*/
+	public static final By TRACE_FNAME_SYSTEM= By.xpath(".//*[@src='/trace/system/systemtabs?portal_id=portal-sysconfig&wicket_id=module-custom_wickets-sysconfig-conf&root_id=-1&portalStyle=tabs']");
+			
 }

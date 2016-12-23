@@ -27,8 +27,6 @@ public class TestSufa {
 		 StringBuilder sb =new StringBuilder();
 		for(int i=5;i>0;i--){
 			sb.append(name+i);
-			//System.out.println(sb);
-			
 			}
 		System.out.println(sb);
 		
