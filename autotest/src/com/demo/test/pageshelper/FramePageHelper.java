@@ -24,5 +24,9 @@ public class FramePageHelper {
 
 	}
 	
+	public static void jumpParentFrame(SeleniumUtil seleniumUtil){
+		seleniumUtil.outParentFrame();
+	}
+	
 
 }

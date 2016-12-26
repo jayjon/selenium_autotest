@@ -24,21 +24,41 @@ public class TraceHomePageHelper {
 		FramePageHelper.jumpInToFrame(seleniumUtil,FramePage.TRACE_FNAME_SYSTEM);
 		logger.info("进入系统左侧树结构成功");
 	}
-	public static void clinkSystem(SeleniumUtil seleniumUtil, int timeOut) {
+	public static void clinkSystem(SeleniumUtil seleniumUtil, int timeOut,String lasttimebakup,String ARCHIVE_RESTORE) {
 		// TODO Auto-generated method stub
-		seleniumUtil.click(TraceHomePage.TRACE_TEXT_SYSTEM);
-		logger.info("点击系统模块成功");
-		seleniumUtil.pause(3000);
-		seleniumUtil.click(TraceHomePage.TRACE_TEXT_PEIZHI);
-		logger.info("点击系统配置成功");
-		inframe(seleniumUtil);
+		seleniumUtil.pause(2000);
 		List<WebElement> s =seleniumUtil.findElementsBy(TraceHomePage.TRACE_TEXT_TREE);
 		for(int i=0;i<s.size();i++){
-			WebElement	element = s.get(i);
-			    HomePageHelper.isDiscover(seleniumUtil, element);
-				System.out.println("####"+element.getText());
+			try {
+				WebElement	element = s.get(i);
+				 System.out.println("####"+element.getText());
+					seleniumUtil.pause(1500);
+					seleniumUtil.click(By.linkText(element.getText()));
+			
+						if(element.getText().equals("系统数据")){
+				        	logger.info("测试点击“系统数据”后是否正常跳转到页面 且返回值正确");
+							FramePageHelper.jumpInToFrame(seleniumUtil,FramePage.TRACE_FNAME_RIGHT);
+							seleniumUtil.isTextCorrect(seleniumUtil.getText(TraceHomePage.LASTTIMEBAKUP), lasttimebakup);
+							//跳转到父框架
+							FramePageHelper.jumpParentFrame(seleniumUtil);
+							logger.info("系统数据页面跳转成功"+lasttimebakup);
+					    }else{
+							logger.info("测试用例执行失败.....");
+						}
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		
+					
+						
+						
 		}
-    }
+	 }
+				
+					
+		       
+	
+    
 	public static void tagname(SeleniumUtil seleniumUtil, int timeOut){
 		seleniumUtil.click(TraceHomePage.TRACE_TEXT_SYSTEM);
 		logger.info("点击系统模块成功");

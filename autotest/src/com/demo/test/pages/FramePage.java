@@ -33,5 +33,6 @@ public class FramePage {
 	public static final By AC_FNAME_ADDFXRIGHTTASKIFRAME = By.className("ui-tabs-frame");
    /**Trace系统模块tree*/
 	public static final By TRACE_FNAME_SYSTEM= By.xpath(".//*[@src='/trace/system/systemtabs?portal_id=portal-sysconfig&wicket_id=module-custom_wickets-sysconfig-conf&root_id=-1&portalStyle=tabs']");
-			
+  /**Trace系统模块右侧iframe*/		
+   public static final By TRACE_FNAME_RIGHT =By.xpath(".//*[@src='/trace/system/sys/info']");
 }

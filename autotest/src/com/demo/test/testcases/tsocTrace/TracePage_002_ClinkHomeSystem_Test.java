@@ -23,8 +23,10 @@ public class TracePage_002_ClinkHomeSystem_Test extends BaseParpare{
 		HomePageHelper.waitHomePageLoad(seleniumUtil, timeOut);
 		// 检查用户名是不是期望的"sysadmin"
 		HomePageHelper.checkUserName(seleniumUtil, timeOut, data.get("USERNAME"));
-		//TraceHomePageHelper.clinkSystem(seleniumUtil, timeOut);
+		//获取到所有的button并且默认为关闭的就打开
 		TraceHomePageHelper.tagname(seleniumUtil, timeOut);
+		//点击所有的问本
+		TraceHomePageHelper.clinkSystem(seleniumUtil, timeOut,data.get("lasttimebakup"), data.get("ARCHIVE_RESTORE"));
 
 	}
 	

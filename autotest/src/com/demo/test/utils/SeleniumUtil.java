@@ -524,6 +524,10 @@ public class SeleniumUtil {
 	public void outFrame() {
 		driver.switchTo().defaultContent();
 	}
+	
+	public void outParentFrame(){
+		driver.switchTo().parentFrame();
+	}
 
 	// webdriver中可以设置很多的超时时间
 	/** implicitlyWait。识别对象时的超时时间。过了这个时间如果对象还没找到的话就会抛出NoSuchElement异常 */
