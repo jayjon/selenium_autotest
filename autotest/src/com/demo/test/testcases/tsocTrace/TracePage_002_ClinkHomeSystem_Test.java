@@ -26,7 +26,7 @@ public class TracePage_002_ClinkHomeSystem_Test extends BaseParpare{
 		//获取到所有的button并且默认为关闭的就打开
 		TraceHomePageHelper.tagname(seleniumUtil, timeOut);
 		//点击所有的问本
-		TraceHomePageHelper.clinkSystem(seleniumUtil, timeOut,data.get("lasttimebakup"), data.get("ARCHIVE_RESTORE"));
+		TraceHomePageHelper.clinkSystems(seleniumUtil, timeOut,data.get("lasttimebakup"), data.get("ARCHIVE_RESTORE"),data.get("AUTOGUIDANGZHOUQI"),data.get("SHOUQUANXINGXI"),data.get("ROUTEXINFXIPEIZHI"),data.get("ROUTEINTERFACEPEIZHI"),data.get("MAPPEIZHI"));
 
 	}
 	

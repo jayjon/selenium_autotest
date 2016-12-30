@@ -8,10 +8,10 @@ import com.demo.test.base.BaseParpare;
 import com.demo.test.pageshelper.AcHomeTaskPageHelper;
 import com.demo.test.pageshelper.HomePageHelper;
 import com.demo.test.pageshelper.LoginPageHelper;
-/**添加任务组D*/
-public class ActaskPage_005_AddHomeAcTaskName1 extends BaseParpare{
-  //@Test(dataProvider = "testData")
-	public void AddHomeAcTaskName1(Map<String,String> data){
+/**添加任务组H*/
+public class ActaskPage_011_AddHomeAcTaskNameH6 extends BaseParpare{
+    //@Test(dataProvider = "testData")
+	public void AddHomeAcTaskNameH6(Map<String,String> data){
 		// 等待登录页面加载
 		LoginPageHelper.waitLoginPageLoad(seleniumUtil, timeOut);
 		// 输入登录信息

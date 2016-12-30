@@ -35,4 +35,18 @@ public class FramePage {
 	public static final By TRACE_FNAME_SYSTEM= By.xpath(".//*[@src='/trace/system/systemtabs?portal_id=portal-sysconfig&wicket_id=module-custom_wickets-sysconfig-conf&root_id=-1&portalStyle=tabs']");
   /**Trace系统模块右侧iframe*/		
    public static final By TRACE_FNAME_RIGHT =By.xpath(".//*[@src='/trace/system/sys/info']");
+   public static final By TRACE_FNAME_RIGHT1=By.xpath(".//*[@src='/trace/system/event']");
+   public static final By TRACE_FNAME_RIGHT2 = By.xpath(".//*[@src='/trace/system/maintain/info']");
+   public static final By TRACE_FNAME_RIGHT3 = By.xpath(".//*[@src='/trace/system/licenseInit']");
+   public static final By TRACE_FNAME_RIGHT4 = By.xpath(".//*[@src='/trace/origins/port/routerPortInfo/tab']");
+   public static final By TRACE_FNAME_RIGHT5 = By.xpath(".//*[@src='/trace/origins/port/rportGroupConf/tab']");
+   public static final By TRACE_FNAME_RIGHT6 =By.xpath(".//*[@src='/trace/origins/port/routerInfo/tab']");
+/**AC系统模块右侧iframe*/
+   public static final By AC_SYS_RIGHT = By.xpath(".//*[@src='/ac/runconfig/route/main?page=1&rows=20&sord=asc&sidx=id']");
+   public static final By AC_SYS_RIGHT1 = By.xpath(".//*[@src='/ac/config/sysmanage/onlineuser/viewOnlineUser']");
+   public static final By AC_SYS_RIGHT2 = By.xpath(".//*[@src='/ac/config/sysmanage/syslog/viewSysLog']");
+   public static final By AC_SYS_RIGHT3 = By.xpath(".//*[@src='/ac/config/sysmanage/server/viewServerMonitor']");
+   public static final By AC_SYS_RIGHT4 = By.xpath(".//*[@src='/ac/config/sysmanage/database/viewDatabaseMonitor']");
+   public static final By AC_SYS_RIGHT5 = By.xpath(".//*[@src='/ac/config/sysmanage/event/viewEvent']");
+
 }

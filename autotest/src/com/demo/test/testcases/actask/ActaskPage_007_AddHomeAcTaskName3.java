@@ -12,7 +12,7 @@ import com.demo.test.pageshelper.LoginPageHelper;
  * 测试用例： 
  * 添加任务组F 任务为端口扫描*/ 
 public class ActaskPage_007_AddHomeAcTaskName3 extends BaseParpare{
-   @Test(dataProvider = "testData")
+   //@Test(dataProvider = "testData")
 	public void AddHomeAcTaskName3(Map<String,String> data){
 		// 等待登录页面加载
 		LoginPageHelper.waitLoginPageLoad(seleniumUtil, timeOut);

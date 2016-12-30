@@ -26,9 +26,11 @@ public class TestSufa {
 	public static void xunhuan(String name){
 		 StringBuilder sb =new StringBuilder();
 		for(int i=5;i>0;i--){
-			sb.append(name+i);
+			String st="test";
+			System.out.println(st+i);
+			
 			}
-		System.out.println(sb);
+		
 		
 			
 		

@@ -17,4 +17,14 @@ public class AcHomeTaskPage {
 	public static final By AC_TEXT_DELQUEREN=By.xpath(".//*[@id='btn-form-delClear']/span/span");
     //找到当前table
 	public static final By AC_TEXT_TABLEID=By.id("id_table");
+	public static final By AC_SYSTEMTREE = By.xpath("//li/descendant::a");
+	//树下所有button
+	public static final By AC_SYSTEM_LEFTBUTTON=By.tagName("button");
+	//AC系统下返回页面的值
+	public static final By SYSADD = By.linkText("添加");
+	public static final By SYSZAIXIANUSER = By.linkText("在线用户");
+	public static final By SYSLOG = By.linkText("系统日志");
+	public static final By SERVERMONITORING = By.linkText("服务器监控");
+	public static final By SQLMONITORING = By.linkText("数据库监控");
+	public static final By FLOWMONITORING =By.linkText("流量监控");
 }

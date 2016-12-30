@@ -10,10 +10,10 @@ import com.demo.test.pageshelper.HomePageHelper;
 import com.demo.test.pageshelper.LoginPageHelper;
 /** 
  * 测试用例：
- * 
+ * 添加任务组E
  * */
 public class ActaskPage_006_AddHomeAcTaskName2 extends BaseParpare{
-    //@Test(dataProvider = "testData")
+   //@Test(dataProvider = "testData")
 	public void AddHomeAcTaskName2(Map<String,String> data){
 		// 等待登录页面加载
 		LoginPageHelper.waitLoginPageLoad(seleniumUtil, timeOut);

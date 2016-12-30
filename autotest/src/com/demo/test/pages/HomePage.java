@@ -49,7 +49,7 @@ public class HomePage {
 	//新增组名称
 	public static final By AC_TEXT_ADDFXTGROUPNAME =By.id("name");
 	//任务组
-	public static final By AC_TEXT_TASKGROUP =By.id("tree_1_span");
+	public static final By AC_TEXT_TASKGROUP =By.linkText("任务组");
 	
 	//新增组描述信息
 	public static final By AC_TEXT_ADDFXTGROUPDES =By.xpath(".//*[@id='group-form']/ul/li[2]/div/textarea");
