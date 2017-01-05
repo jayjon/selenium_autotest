@@ -8,7 +8,7 @@ import com.demo.test.base.BaseParpare;
 import com.demo.test.pageshelper.AcHomeTaskPageHelper;
 import com.demo.test.pageshelper.HomePageHelper;
 import com.demo.test.pageshelper.LoginPageHelper;
-
+/**指定一条任务组删除*/
 public class ActaskPage_002_DelHomeAcTaskName extends BaseParpare{
 	//@Test(dataProvider = "testData")
 	public void DelHomeAcTaskName(Map<String,String> data){

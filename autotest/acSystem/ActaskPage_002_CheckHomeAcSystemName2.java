@@ -22,7 +22,7 @@ public class ActaskPage_002_CheckHomeAcSystemName2 extends BaseParpare{
 		//检查登录用户名是否正确
 		HomePageHelper.checkUserName(seleniumUtil, timeOut,data.get("USERNAME"));
 		//循环得到所有按钮并且点击 调用写好的方法
-		TraceHomePageHelper.tagname2(seleniumUtil, timeOut);
+		TraceHomePageHelper.tagname1(seleniumUtil, timeOut);
         //点击到系统模块
 	    AcHomeSystemPageHelper.checkclinkHomes(seleniumUtil, timeOut, data.get("SYSADD"),data.get("SYSZAIXIANUSER"), data.get("SYSLOG"), data.get("SERVERMONITORING"), data.get("SQLMONITORING"),data.get("FLOWMONITORING"
 ));

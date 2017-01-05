@@ -122,7 +122,7 @@ public class TraceHomePageHelper {
 				
 					
 		       
-	
+	/**TRACE系统拿到所有左侧树结构button*/
     
 	public static void tagname(SeleniumUtil seleniumUtil, int timeOut){
 		seleniumUtil.click(TraceHomePage.TRACE_TEXT_SYSTEM);
@@ -146,7 +146,7 @@ public class TraceHomePageHelper {
 	}
 	
 	}
-	
+	/**AC系统拿到所有左侧树结构button*/
 	public static void tagname1(SeleniumUtil seleniumUtil, int timeOut) {
 		logger.info("");
 		seleniumUtil.click(AcHomeSystemPage.HP_TEXT_SYSTEM);
@@ -172,4 +172,24 @@ public class TraceHomePageHelper {
 		
 	}
 }
+	/**AC指纹模块下树结构下button*/
+	public static void tagname2(SeleniumUtil seleniumUtil, int timeOut) {
+		logger.info("开始点击指纹模块");
+		seleniumUtil.click(AcHomeSystemPage.AC_FINFERPRINTMOD);
+		seleniumUtil.click(AcHomeSystemPage.AC_FINFERPRINT);
+		seleniumUtil.pause(1500);
+		List<WebElement> s = seleniumUtil.findElementsBy(AcHomeTaskPage.AC_SYSTEM_LEFTBUTTON);
+		for(int i=0;i<s.size();i++){
+			WebElement  element= s.get(i);
+		System.out.println("**"+ element.getAttribute("id"));
+		String stId =element.getAttribute("id");
+		String stClass=element.getAttribute("class");
+		
+		if(element.getAttribute("id").endsWith("switch") && element.getAttribute("class").endsWith("close")){
+			System.out.println("**"+stId+"^^"+stClass);
+			seleniumUtil.click(By.id(stId));
+		}else{
+			logger.info("按钮已经打开");
+		}
 	}
+	}}

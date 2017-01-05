@@ -8,9 +8,9 @@ import com.demo.test.base.BaseParpare;
 import com.demo.test.pageshelper.AcHomeTaskPageHelper;
 import com.demo.test.pageshelper.HomePageHelper;
 import com.demo.test.pageshelper.LoginPageHelper;
-/**添加任务组C*/
+/**添加任务组C,Ip为192.168.56.1-255*/
 public class ActaskPage_003_AddHomeAcTaskName extends BaseParpare{
-    //@Test(dataProvider = "testData")
+   // @Test(dataProvider = "testData")
 	public void AddHomeAcTaskName(Map<String,String> data){
 		// 等待登录页面加载
 		LoginPageHelper.waitLoginPageLoad(seleniumUtil, timeOut);

@@ -8,7 +8,7 @@ import com.demo.test.base.BaseParpare;
 import com.demo.test.pageshelper.AcHomeTaskPageHelper;
 import com.demo.test.pageshelper.HomePageHelper;
 import com.demo.test.pageshelper.LoginPageHelper;
-/**添加任务组H*/
+/**添加任务组I Ip范围为192.168.12.1-255*/
 public class ActaskPage_012_AddHomeAcTaskNameI7 extends BaseParpare{
    //@Test(dataProvider = "testData")
 	public void AddHomeAcTaskNameI7(Map<String,String> data){

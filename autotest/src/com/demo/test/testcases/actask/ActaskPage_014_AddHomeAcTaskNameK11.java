@@ -8,10 +8,10 @@ import com.demo.test.base.BaseParpare;
 import com.demo.test.pageshelper.AcHomeTaskPageHelper;
 import com.demo.test.pageshelper.HomePageHelper;
 import com.demo.test.pageshelper.LoginPageHelper;
-/**添加任务组H，Ip为192.168.19.1-255*/
-public class ActaskPage_011_AddHomeAcTaskNameH6 extends BaseParpare{
-    //@Test(dataProvider = "testData")
-	public void AddHomeAcTaskNameH6(Map<String,String> data){
+/**添加任务组J Ip范围为192.168.14.1-255 192.168.56.1-255 192.168.19.1-255*/
+public class ActaskPage_014_AddHomeAcTaskNameK11 extends BaseParpare{
+   //@Test(dataProvider = "testData")
+	public void AddHomeAcTaskNameK11(Map<String,String> data){
 		// 等待登录页面加载
 		LoginPageHelper.waitLoginPageLoad(seleniumUtil, timeOut);
 		// 输入登录信息

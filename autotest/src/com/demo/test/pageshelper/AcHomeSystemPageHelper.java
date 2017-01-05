@@ -122,5 +122,12 @@ public class AcHomeSystemPageHelper {
 			
 			}		
 		}
+		/**AC项目
+		 * 点击指纹模块方法*/
+		public static void checkclinkHome1(SeleniumUtil seleniumUtil, int timeOut) {
+			
+		   
+			
+		}
 		
 		}

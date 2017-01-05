@@ -13,4 +13,7 @@ public class AcHomeSystemPage {
 	//第一个树节点
 	public static final By AC_TEXT_SYSSELFMONITORING=By.id("system-manage-tree_3_switch");
 	public static final By AC_TEXT_SYSPRODUCTUPDATE =By.id("system-manage-tree_9_switch");
+	/**指纹*/
+	public static final By AC_FINFERPRINTMOD = By.xpath(".//*[@id='jqDock0']/div[3]/div/div/span");
+	public static final By AC_FINFERPRINT = By.xpath(".//*[@id='ui-id-3']");
 }

@@ -8,10 +8,10 @@ import com.demo.test.base.BaseParpare;
 import com.demo.test.pageshelper.AcHomeTaskPageHelper;
 import com.demo.test.pageshelper.HomePageHelper;
 import com.demo.test.pageshelper.LoginPageHelper;
-/**添加任务组H，Ip为192.168.19.1-255*/
-public class ActaskPage_011_AddHomeAcTaskNameH6 extends BaseParpare{
-    //@Test(dataProvider = "testData")
-	public void AddHomeAcTaskNameH6(Map<String,String> data){
+/**循环删除任务组*/
+public class ActaskPage_015_DelHomeAcTaskName2 extends BaseParpare{
+ //@Test(dataProvider = "testData")
+	public void DelHomeAcTaskName2(Map<String,String> data){
 		// 等待登录页面加载
 		LoginPageHelper.waitLoginPageLoad(seleniumUtil, timeOut);
 		// 输入登录信息
@@ -20,9 +20,9 @@ public class ActaskPage_011_AddHomeAcTaskNameH6 extends BaseParpare{
 		HomePageHelper.checkUserName(seleniumUtil, timeOut,data.get("USERNAME"));
 		//检查是否到发现模块页面并且验证后添加任务组 
 	    HomePageHelper.clinkHomeFXElement(seleniumUtil, timeOut, data.get("FAXIANPEIZHI"),data.get("NAME"),data.get("ISDELETE"));
-	    //添加任务组
-	    AcHomeTaskPageHelper.addtaskName(seleniumUtil, timeOut,data.get("NAME"));
-	    //添加组下的任务
-	    AcHomeTaskPageHelper.addFXGroupTask(seleniumUtil, timeOut, data.get("ADDTEXT"), data.get("RIGHTTASKNAME"),data.get("SCANADDRESS"), data.get("CYCLETIME"),data.get("ERROR"),data.get("key"));
+	    //删除任务组多个任务组
+	    AcHomeTaskPageHelper.deleteFXGroupTask1(seleniumUtil, timeOut, data.get(null));
+	  
+	  
 	}
 }
