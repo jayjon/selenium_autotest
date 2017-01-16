@@ -48,5 +48,11 @@ public class FramePage {
    public static final By AC_SYS_RIGHT3 = By.xpath(".//*[@src='/ac/config/sysmanage/server/viewServerMonitor']");
    public static final By AC_SYS_RIGHT4 = By.xpath(".//*[@src='/ac/config/sysmanage/database/viewDatabaseMonitor']");
    public static final By AC_SYS_RIGHT5 = By.xpath(".//*[@src='/ac/config/sysmanage/event/viewEvent']");
+ /**AC指纹模块左侧iframe*/
+   public static final By FP_FRAME_ACZHIWEN = By.xpath(".//*[@src='/ac/fingerPrint/main?portal_id=portal-acFingerPrint&wicket_id=module-acFingerPrint_wickets-fingerPrint&root_id=-1&portalStyle=tabs']");
+   public static final By AC_ZHIWEN_RIGHT = By.xpath(".//*[@src='/ac/fingerPrint/viewAcFingerPrint']");
+public static final By AC_ZHIWEN_RIGHT1 = By.xpath(".//*[@src='/ac/fingerPrint/extractionView']");
+public static final By AC_ZC_TYPESYS = By.xpath(".//*[@src='/ac/acasset/viewAllType']");
+public static final By AC_ZC_TYPESYS1 = By.xpath(".//*[@src='/ac/acasset/assetTypeMain?portal_id=portal-acasset&wicket_id=module-acasset_wickets-acasset-type&root_id=-1']");
 
 }

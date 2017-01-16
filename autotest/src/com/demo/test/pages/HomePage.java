@@ -1,6 +1,7 @@
 package com.demo.test.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 /**
  * @author Young
@@ -104,4 +105,8 @@ public class HomePage {
 	public static final By AC_TEXT_EDITINPUT = By.xpath(".//*[@id='name']");
 	//点击编辑组后确定按钮
 	public static final By AC_TEXT_EDITQEIDINGBUTTON = By.xpath(".//*[@id='btn-form-ok']/span/span");
+	public static final By AC_TEXT_ZCTYPEADDBUTTON = By.xpath(".//*[@id='btn_add']/span/span");
+	public static final By AC_TEXT_TYPENAME = By.xpath(".//*[@id='name']");
+	public static final By AC_TEXT_NAVIGATION = By.xpath(".//*[@id='myform']/fieldset[1]/ul/li[6]/div/input[1]");
+	public static final By AC_TEXT_BAOCUNBUTTON = By.xpath(".//*[@id='btn-ok']");
 }

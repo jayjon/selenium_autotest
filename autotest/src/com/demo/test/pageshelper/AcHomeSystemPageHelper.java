@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import com.demo.test.pages.AcHomeSystemPage;
 import com.demo.test.pages.AcHomeTaskPage;
@@ -124,10 +125,47 @@ public class AcHomeSystemPageHelper {
 		}
 		/**AC项目
 		 * 点击指纹模块方法*/
-		public static void checkclinkHome1(SeleniumUtil seleniumUtil, int timeOut) {
-			
+		public static void checkclinkHomes1(SeleniumUtil seleniumUtil, int timeOut,String ZHIWENGUANLI,String ZHIWENSELECT,String IP,String HODTCOUNT,String VALUE) {
+			seleniumUtil.pause(2000);
+			List<WebElement> s =seleniumUtil.findElementsBy(TraceHomePage.TRACE_TEXT_TREE);
+			for(int i=0;i<s.size();i++){
+			        WebElement	element = s.get(i);
+					 System.out.println("***");
+						seleniumUtil.pause(1500);
+						seleniumUtil.click(By.linkText(element.getText()));
+						if(element.getText().equals("指纹管理")){
+							FramePageHelper.jumpInToFrame(seleniumUtil,FramePage.AC_ZHIWEN_RIGHT);
+							logger.info("开始执行测试用例1：");
+							seleniumUtil.isContains(seleniumUtil.getText(AcHomeTaskPage.ZHIWENGUANLI),ZHIWENGUANLI);
+							//跳回到父框架
+							FramePageHelper.jumpParentFrame(seleniumUtil);
+							logger.info("跳回到父框架成功");
+						}else if(element.getText().equals("指纹提取工具")){
+							
+							logger.info("开始执行测试用例2：");
+							seleniumUtil.isContains(seleniumUtil.getText(AcHomeTaskPage.ZHIWENSELECT),ZHIWENSELECT);
+							//进入框架
+							FramePageHelper.jumpInToFrame(seleniumUtil,FramePage.AC_ZHIWEN_RIGHT1);
+							//定位输入框
+							seleniumUtil.pause(1500);
+							//seleniumUtil.click(AcHomeTaskPage.ZHIWENTARGET);
+							seleniumUtil.clear(AcHomeTaskPage.ZHIWENTARGET);
+							seleniumUtil.type(AcHomeTaskPage.ZHIWENTARGET, IP);
+							seleniumUtil.pause(1500);
+						   Select sel =new Select(seleniumUtil.findElementBy(AcHomeTaskPage.AC_ZHIWEN_SELECT));
+						//循环点击 下拉框
+						   for(WebElement e:sel.getOptions()){
+							   logger.info("下拉框的value值："+e.getAttribute("value"));	
+							   e.click();
+						
+							}
+					
+							
+						}else{
+							logger.info("界面无需返回值判断");
+						}
 		   
-			
+			}
 		}
 		
 		}
